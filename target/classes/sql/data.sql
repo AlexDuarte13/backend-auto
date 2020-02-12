@@ -1,0 +1,1 @@
+INSERT INTO easi_bradesco.user VALUES ('tiagoaraujodegouvea@gmail.com', 'Tiago', '123456', '2121212121', 'INSURED');

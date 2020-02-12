@@ -1,0 +1,44 @@
+server:
+  port: 9093
+
+eureka:
+  instance:
+    hostname: localhost
+    port: 9091
+  client:
+    registerWithEureka: true
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${eureka.instance.port}/eureka/
+  server:
+    wait-time-in-ms-when-sync-empty: 3000
+
+spring:
+    datasource:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        password: 'alex@1234'
+        platform: mysql
+        url: jdbc:mysql://localhost:3306/easi?useTimezone=true&serverTimezone=UTC
+        username: alex
+    jpa:
+        database-platform: org.hibernate.dialect.MySQL5Dialect
+        generate-ddl: false
+        hibernate:
+            ddl-auto: none
+        show-sql: true
+    servlet:
+      multipart:
+         max-file-size: 128MB
+         max-request-size: 128MB
+         enabled: true
+    cloud:
+       gcp:
+          credentials:
+             location: file:/home/braddock/Documents/dev/google_vision/key/fresh-effort-256019-3cb6a295d9f2.json
+
+# authserver:
+#  hostname: http://localhost:9092
+# security:
+# oauth2:
+#    resource:
+#      userInfoUri: ${authserver.hostname}/user
